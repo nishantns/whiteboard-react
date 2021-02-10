@@ -20,48 +20,15 @@ const useStyles = makeStyles((theme) => ({
     }
   }));
 
-const EventsList = () => {
+const EventsList = (props) => {
     const classes = useStyles();
-
-    const [data, setData] = useState(rows);
-    const [searchText, setSearchText] = useState('');
-    const [fromDate, setFromDate] = useState(null);
-    const [toDate, setToDate] = useState(null);
-    const [checkedItems, setCheckedItems] = useState(new Map());
-
-    const onSearchTextChange = (event) => {
-        setSearchText(event.target.value);
-        console.log(event.target.value);
-    }
-
-    const onClickSearchById = () => {
-        console.log('search by id')
-    }
-
-    const onClickFilter = () => {
-        console.log(checkedItems)
-        console.log(fromDate);
-        console.log('filter')
-    }
-
-    const onChangeFromDate = (e) => {
-        setFromDate(e.target.value);
-    }
-
-    const onChangeToDate = () => {
-        setToDate(e.target.value);
-    }
-
-    const handleCheckboxChange = (e) => {
-        checkedItems.set(e.target.name, e.target.checked);
-        setCheckedItems(new Map(checkedItems));
-    }
+    
     return(
         <div>
             <Grid container>
                 <Grid item className={classes.checkboxes}>
                     {   CheckboxLabels.map(item => {
-                            return <Checkbox onChange={handleCheckboxChange} label={item}/>
+                            return <Checkbox onChange={props.handleCheckboxChange} label={item}/>
                         })
                     }
                 </Grid>
@@ -71,29 +38,29 @@ const EventsList = () => {
                             <Typography>Date Range:</Typography>
                         </Grid>
                         <Grid item>
-                            <DatePicker onChange={onChangeFromDate} />
+                            <DatePicker onChange={(e) => props.onChangeFromDate(e)} />
                         </Grid>
                         <Grid item>
                             <Typography>through</Typography>
                         </Grid>
                         <Grid item>
-                            <DatePicker onChange={onChangeToDate}/>
+                            <DatePicker onChange={(e) => props.onChangeToDate(e)}/>
                         </Grid>
                         <Grid item>
-                            <Button onClick={onClickFilter} size="large" variant="contained" label={"Filter"} />
+                            <Button onClick={props.onClickFilter} size="large" variant="contained" label={"Filter"} />
                         </Grid>
                     </Grid>
                     <Grid item container xs={4}>
                         <Grid item>
-                            <TextField onChange={onSearchTextChange} variant="filled" placeholder="search" />
+                            <TextField onChange={props.onSearchTextChange} variant="filled" placeholder="search" />
                         </Grid>
                         <Grid item>
-                            <Button onClick={onClickSearchById} size="large" variant="contained" label={"By ID"} />
+                            <Button onClick={props.onClickSearchById} size="large" variant="contained" label={"By ID"} />
                         </Grid>
                     </Grid> 
                 </Grid>
                 <Grid item xs={12} className={classes.table}>
-                    <Table rows={data}/>
+                    <Table rows={props.data}/>
                 </Grid>
             </Grid>
         </div>

@@ -10,7 +10,7 @@ import TablePagination from '@material-ui/core/TablePagination';
 import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
-
+import {history} from '../../../helpers/history';
 
 
 function descendingComparator(a, b, orderBy) {
@@ -121,6 +121,12 @@ const useStyles = makeStyles((theme) => ({
     '&:nth-of-type(odd)': {
       backgroundColor: theme.palette.action.hover,
     },
+  },
+  hover: {
+    textDecoration: 'underline',
+    '&:hover': {
+      cursor: 'pointer'
+    },
   }
 }));
 
@@ -155,6 +161,10 @@ const EnhancedTable = ({rows}) => {
     setPage(0);
   };
 
+  const onClickID = (event_id) => {
+    history.push(`/events/${event_id}`)
+  }
+
 
   const isSelected = (name) => selected.indexOf(name) !== -1;
 
@@ -188,7 +198,7 @@ const EnhancedTable = ({rows}) => {
                   return (
                     <TableRow
                       hover
-                      onClick={(event) => handleClick(event, row.name)}
+                      // onClick={(event) => handleClick(event, row.name)}
                       role="checkbox"
                       aria-checked={isItemSelected}
                       tabIndex={-1}
@@ -196,12 +206,12 @@ const EnhancedTable = ({rows}) => {
                       selected={isItemSelected}
                       className={classes.rows}
                     >
-                      <TableCell align="left">{row.id}</TableCell>
+                      <TableCell onClick={() => onClickID(row.id)} align="left" className={classes.hover}>{row.id}</TableCell>
                       <TableCell align="left">{row.status}</TableCell>
                       <TableCell align="left">{row.task}</TableCell>
-                      <TableCell align="left">{row.location}</TableCell>
-                      <TableCell align="left">{row.date}</TableCell>
-                      <TableCell align="left">{row.contact}</TableCell>
+                      <TableCell align="left">{row.location_address}</TableCell>
+                      <TableCell align="left">{row.scheduled}</TableCell>
+                      <TableCell align="left">{row.contact_name}</TableCell>
                       <TableCell align="left">{row.description}</TableCell>
                     </TableRow>
                   );
