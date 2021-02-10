@@ -17,11 +17,13 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, './build'),
+    publicPath: '/',
     filename: 'bundle.js',
   },
   plugins: [new webpack.HotModuleReplacementPlugin()],
   devServer: {
     contentBase: path.resolve(__dirname, './build'),
+    historyApiFallback: true,
     hot: true,
     port: 3000
   },
