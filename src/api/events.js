@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BASE_URL = "http://localhost:3333/api";
 
-export const getEvents = async (queryParams = "") => {
+export const getEvents = async (queryParams) => {
     return await axios.get(`${BASE_URL}/events?${queryParams}`);
 };
 
