@@ -2,13 +2,11 @@ import { Grid } from "@material-ui/core";
 import React, { useEffect, useState } from "react";
 import { getEvents, getEventById } from "../../../api/events";
 import EventsList from "../../organisms/EventsList/EventsList";
-import { rows } from '../../../constants/Constant';
 import Header from "../../organisms/Header/Header";
 
 const EventListPage = () => {
 
   const [events, setEvents] = useState([]);
-  const [data, setData] = useState(rows);
   const [searchText, setSearchText] = useState('');
   const [fromDate, setFromDate] = useState(undefined);
   const [toDate, setToDate] = useState(undefined);

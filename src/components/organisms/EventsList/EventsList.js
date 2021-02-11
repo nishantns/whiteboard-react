@@ -1,11 +1,11 @@
 import { Grid, makeStyles, Typography } from '@material-ui/core';
-import React, { useState } from 'react';
+import React from 'react';
 import Checkbox from '../../atoms/checkbox/checkbox';
 import DatePicker from '../../atoms/DatePicker/DatePicker';
 import Table from '../../molecules/Table/Table';
 import TextField from '../../atoms/Input/TextField';
 import Button from '../../atoms/Button/Button';
-import { CheckboxLabels, rows } from '../../../constants/Constant';
+import { CheckboxLabels } from '../../../constants/Constant';
 
 const useStyles = makeStyles((theme) => ({
     checkboxes: {
