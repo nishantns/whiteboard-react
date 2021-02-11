@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import { getEvents, getEventById } from "../../../api/events";
 import EventsList from "../../organisms/EventsList/EventsList";
 import { rows } from '../../../constants/Constant';
+import Header from "../../organisms/Header/Header";
 
 const EventListPage = () => {
 
@@ -71,9 +72,9 @@ const EventListPage = () => {
   return (
     <Grid container justify={ "center" } spacing={ 2 }>
       <Grid item xs={ 12 }>
-
+        <Header/>
       </Grid>
-      <Grid item xs={ 11 }>
+      <Grid item xs={ 10 }>
         <EventsList onChangeToDate={ onChangeToDate }
                     onChangeFromDate={ onChangeFromDate }
                     onClickFilter={ onClickFilter }
