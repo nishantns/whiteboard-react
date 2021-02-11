@@ -209,7 +209,7 @@ const EnhancedTable = ({rows}) => {
                     >
                       <TableCell onClick={() => onClickID(row.id)} align="left" className={classes.hover}>{row.id}</TableCell>
                       <TableCell align="left">{row.status}</TableCell>
-                      <TableCell align="left">{row.task}</TableCell>
+                      <TableCell align="left">{row.name}</TableCell>
                       <TableCell align="left">{row.location_address}</TableCell>
                       <TableCell align="left">{row.scheduled}</TableCell>
                       <TableCell align="left">{row.contact_name}</TableCell>
