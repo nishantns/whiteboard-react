@@ -17,7 +17,8 @@ const Input = ({onChange, variant, placeholder}) => {
                     height: '42px',
                     paddingLeft: '15px',
                     paddingTop: 0,
-                    paddingBottom: 0
+                    paddingBottom: 0,
+                    backgroundColor: "#ffffff",
                 }
             }}
         />

@@ -3,7 +3,7 @@ import { Button as ButtonComp, makeStyles } from '@material-ui/core';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-      // backgroundColor: "#32CD32"
+      color: theme.palette.common.white
   },
 
 }));
@@ -15,7 +15,7 @@ const Button = ({label, onClick, size, variant}) => {
         onClick={onClick}
         size={size}
         variant={variant}
-        // color="primary"
+        color="primary"
         className={classes.root}
     >
       { label }
