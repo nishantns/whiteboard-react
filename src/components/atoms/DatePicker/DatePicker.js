@@ -10,17 +10,15 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const DatePickers = ({ label, onChange}) => {
+const DatePickers = ({ label, onChange, defaultValue}) => {
   const classes = useStyles();
 
   return (
       <TextField
         id={label}
-        // label={label}
         type="date"
-        // defaultValue="2017-05-24"
+        defaultValue={defaultValue}
         variant="filled"
-        // size="small"
         onChange={onChange}
         className={classes.textField}
         InputLabelProps={{

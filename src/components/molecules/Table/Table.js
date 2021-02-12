@@ -11,6 +11,7 @@ import TableRow from '@material-ui/core/TableRow';
 import TableSortLabel from '@material-ui/core/TableSortLabel';
 import Paper from '@material-ui/core/Paper';
 import { useHistory } from 'react-router-dom';
+import moment from "moment";
 
 
 function descendingComparator(a, b, orderBy) {
@@ -119,7 +120,7 @@ const useStyles = makeStyles((theme) => ({
   },
   rows: {
     '&:nth-of-type(odd)': {
-      backgroundColor: theme.palette.action.hover,
+      backgroundColor: 'rgba(90, 197, 104, 0.15)' ,
     },
   },
   hover: {
@@ -211,7 +212,7 @@ const EnhancedTable = ({rows}) => {
                       <TableCell align="left">{row.status}</TableCell>
                       <TableCell align="left">{row.name}</TableCell>
                       <TableCell align="left">{row.location_address}</TableCell>
-                      <TableCell align="left">{row.scheduled}</TableCell>
+                      <TableCell align="left">{moment(row.scheduled).format("YYYY-MM-DD HH:MM")}</TableCell>
                       <TableCell align="left">{row.contact_name}</TableCell>
                       <TableCell align="left">{row.description}</TableCell>
                     </TableRow>

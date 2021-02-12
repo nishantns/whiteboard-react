@@ -39,8 +39,8 @@ const NewEventPage = () => {
 
     return (
         <Grid container justify={"center"}>
-            <Grid item xs={12} className={classes.headerContainer}>
-                <Header/>
+            <Grid item xs={2} className={classes.headerContainer} direction={"row"}>
+                <Header activeIndex={2}/>
             </Grid>
             <Grid item xs={10}>
                 <EventForm

@@ -48,8 +48,8 @@ const EventDetailsPage = () => {
     };
 
     return (
-        <Grid container justify={"center"}>
-            <Grid item xs={12} className={classes.headerContainer}>
+        <Grid container justify={"center"} direction="row">
+            <Grid item xs={2} className={classes.headerContainer}>
                 <Header/>
             </Grid>
             <Grid item xs={10}>
