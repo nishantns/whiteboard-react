@@ -8,6 +8,12 @@ import Button from '../../atoms/Button/Button';
 import { CheckboxLabels } from '../../../constants/Constant';
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundColor: "#fafafa",
+        paddingLeft: "20px",
+        paddingTop: "50px",
+        paddingRight: "20px"
+    },
     checkboxes: {
       marginTop: theme.spacing(2),
       marginBottom: theme.spacing(2),
@@ -25,7 +31,7 @@ const EventsList = (props) => {
     
     return(
         <div>
-            <Grid container>
+            <Grid container className={classes.root}>
                 <Grid item className={classes.checkboxes}>
                     {   CheckboxLabels.map(item => {
                             return <Checkbox onChange={props.handleCheckboxChange} label={item}/>
@@ -33,24 +39,24 @@ const EventsList = (props) => {
                     }
                 </Grid>
                 <Grid item container direction="row">
-                    <Grid item container direction="row" xs={8} alignItems="center">
+                    <Grid item container direction="row" xs={8} alignItems="center" spacing={1}>
                         <Grid item>
                             <Typography>Date Range:</Typography>
                         </Grid>
                         <Grid item>
-                            <DatePicker onChange={(e) => props.onChangeFromDate(e)} />
+                            <DatePicker onChange={(e) => props.onChangeFromDate(e)} defaultValue={"2021-01-01"} />
                         </Grid>
                         <Grid item>
                             <Typography>through</Typography>
                         </Grid>
                         <Grid item>
-                            <DatePicker onChange={(e) => props.onChangeToDate(e)}/>
+                            <DatePicker onChange={(e) => props.onChangeToDate(e)} defaultValue={"2021-12-31"} />
                         </Grid>
                         <Grid item>
                             <Button onClick={props.onClickFilter} size="large" variant="contained" label={"Filter"} />
                         </Grid>
                     </Grid>
-                    <Grid item container xs={4}>
+                    <Grid item container xs={4} spacing={2}>
                         <Grid item>
                             <TextField onChange={props.onSearchTextChange} variant="filled" placeholder="search" />
                         </Grid>
