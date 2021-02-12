@@ -9,7 +9,7 @@ const useStyles = makeStyles((theme) => ({
     root: {
         backgroundColor: "#fafafa",
         paddingLeft: "20px",
-        paddingTop: "50px",
+        paddingTop: "40px",
         paddingRight: "20px"
     },
     fieldPadding: {
@@ -298,7 +298,7 @@ const EventForm = (props) => {
                     <DateTimePicker
                         inputVariant={"outlined"}
                         variant={"inline"}
-                        format={"MM/DD/YYYY HH:mm:ss A"}
+                        format={"MM/DD/YYYY HH:mm:ss"}
                         value={selectedTime}
                         onChange={(value) => {
                             setTimeError("");
