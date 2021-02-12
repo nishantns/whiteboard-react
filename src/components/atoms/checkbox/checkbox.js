@@ -9,8 +9,8 @@ import CheckBoxOutlinedIcon from '@material-ui/icons/CheckBoxOutlined';
 
 const useStyles = makeStyles((theme) => ({
     icon: {
-      width: "15px",
-      height: "15px",
+      width: "20px",
+      height: "20px",
     },
     control: {
       padding: theme.spacing(1.25)
@@ -27,8 +27,8 @@ const Checkbox = ({checked, disabled, label, onChange}) => {
                 disabled={disabled}
                 onChange={onChange}
                 name={label}
-                // icon={<CheckBoxOutlineBlankIcon color="primary" className={classes.icon}/>}
-                // checkedIcon={<CheckBoxOutlinedIcon color="primary" className={classes.icon}/>}
+                icon={<CheckBoxOutlineBlankIcon color="primary" className={classes.icon}/>}
+                checkedIcon={<CheckBoxOutlinedIcon color="primary" className={classes.icon}/>}
             />}
             data-testid={"checkbox"}
             label={<Typography variant="body1"  color="textPrimary" >{label}</Typography>}

@@ -1,38 +1,51 @@
-import { AppBar, Button, Grid, makeStyles } from "@material-ui/core";
-import React from "react";
+import { AppBar, Button, Grid, makeStyles, Typography } from "@material-ui/core";
+import React, { useState } from "react";
 import { useHistory } from "react-router-dom";
+import MenuItem from "../../molecules/MenuItem/MenuItem";
+import DateRangeOutlinedIcon from '@material-ui/icons/DateRangeOutlined';
 
 const useStyles = makeStyles((theme) => ({
-    root: {
-        height: "64px",
-        backgroundColor: "white"
+    title: {
+        width: 174,
+        height: 26,
+        margin: theme.spacing(3, 8, 5.75),
+        fontWeight: 600,
+        fontStretch: 'normal',
+        fontStyle: 'normal',
+        lineHeight: 1.3,
+        letterSpacing: 0.2,
     }
 }));
 
-const Header = () => {
+const Header = (props) => {
     const classes = useStyles();
     const history = useHistory();
 
+    const [index, setIndex] = useState(props.activeIndex);
+
+    const handleClick = (idx) => {
+        idx === 1 ? history.push("/") : history.push("/new")
+    }
+
     return (
-        <AppBar position={"static"} variant={"outlined"} className={classes.root}>
-            <Grid container alignItems={"center"} style={{height: "100%"}}>
+            <Grid container alignItems={"center"} className={classes.root}>
                 <Grid item xs={1}/>
                 <Grid item>
-                    <Button
-                        onClick={() => history.push("/")}
-                    >
-                        Current Events
-                    </Button>
+                    <Typography color="primary" variant="h2" className={classes.title}>Windstream</Typography>
                 </Grid>
                 <Grid item>
-                    <Button
-                        onClick={() => history.push("/new")}
-                    >
-                        Create Event
-                    </Button>
+                    <MenuItem text={"Current Events"}
+                        onClick={() => handleClick(1)}
+                        selected={index === 1}
+                        icon={DateRangeOutlinedIcon} />
+                </Grid>
+                <Grid item>
+                    <MenuItem  text={"Create Event"}
+                        onClick={() => handleClick(2)}
+                        selected={index === 2}
+                        icon={DateRangeOutlinedIcon}  />
                 </Grid>
             </Grid>
-        </AppBar>
     );
 };
 
