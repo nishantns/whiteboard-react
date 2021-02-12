@@ -7,10 +7,10 @@ export const theme = createMuiTheme({
         },
         secondary: {
             main: "#9bbdcb",
-          },
-          text: {
+        },
+        text: {
             secondary: "#5f7381",
-          },
+        },
     },
     typography: {
         fontFamily: ["Roboto", "sans-serif"].join(","),
