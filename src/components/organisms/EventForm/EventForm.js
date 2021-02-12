@@ -6,6 +6,12 @@ import React, { useEffect, useState } from "react";
 import { Status } from "../../../constants/Status";
 
 const useStyles = makeStyles((theme) => ({
+    root: {
+        backgroundColor: "#fafafa",
+        paddingLeft: "20px",
+        paddingTop: "40px",
+        paddingRight: "20px"
+    },
     fieldPadding: {
         padding: theme.spacing(1, 0, 1, 1)
     },
@@ -216,7 +222,7 @@ const EventForm = (props) => {
     };
 
     return (
-        <Grid item container xs={6} spacing={2}>
+        <Grid item container xs={10} spacing={2} className={classes.root} alignItems={"center"}>
             <Grid item xs={3}>
                 <Typography variant={"subtitle1"} color={"textPrimary"}>Task:</Typography>
             </Grid>
@@ -292,7 +298,7 @@ const EventForm = (props) => {
                     <DateTimePicker
                         inputVariant={"outlined"}
                         variant={"inline"}
-                        format={"MM/DD/YYYY HH:mm:ss A"}
+                        format={"MM/DD/YYYY HH:mm:ss"}
                         value={selectedTime}
                         onChange={(value) => {
                             setTimeError("");
@@ -331,7 +337,7 @@ const EventForm = (props) => {
                 <Grid item xs={3}>
                     <Typography variant={"subtitle1"} className={classes.locationField} color={"textPrimary"}>Location:</Typography>
                 </Grid>
-                <Grid item container xs={9}>
+                <Grid item container xs={9} alignItems={"center"}>
                     <Grid item xs={1} className={classes.fieldPadding}>
                         <Typography variant={"subtitle1"} color={"textPrimary"}>CLLI:</Typography>
                     </Grid>
@@ -371,7 +377,7 @@ const EventForm = (props) => {
                     <Grid item xs={1} className={classes.fieldPadding}>
                         <Typography variant={"subtitle1"} color={"textPrimary"}>City:</Typography>
                     </Grid>
-                    <Grid item xs={4} className={classes.fieldPadding}>
+                    <Grid item xs={3} className={classes.fieldPadding}>
                         <TextField
                             variant={"outlined"}
                             fullWidth
@@ -407,7 +413,7 @@ const EventForm = (props) => {
                     <Grid item xs={2} className={classes.fieldPadding}>
                         <Typography variant={"subtitle1"} color={"textPrimary"}>Site Type:</Typography>
                     </Grid>
-                    <Grid item xs={2} className={classes.fieldPadding}>
+                    <Grid item xs={3} className={classes.fieldPadding}>
                         <TextField
                             variant={"outlined"}
                             fullWidth

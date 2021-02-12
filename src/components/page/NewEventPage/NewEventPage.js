@@ -5,6 +5,7 @@ import { saveEvent } from "../../../api/events";
 import { getTasks } from "../../../api/tasks";
 import EventForm from "../../organisms/EventForm/EventForm";
 import Header from "../../organisms/Header/Header";
+import EventTemplate from "../../template/EventTemplate/EventTemplate";
 
 const useStyles = makeStyles((theme) => ({
     headerContainer: {
@@ -38,18 +39,16 @@ const NewEventPage = () => {
     };
 
     return (
-        <Grid container justify={"center"}>
-            <Grid item xs={12} className={classes.headerContainer}>
-                <Header/>
-            </Grid>
-            <Grid item xs={10}>
+        <EventTemplate
+            activeIndex={2}
+            content={
                 <EventForm
                     mode={"new"}
                     tasks={tasks}
                     onSubmit={onSubmit}
                 />
-            </Grid>
-        </Grid>
+            }
+        />
     );
 }
 
